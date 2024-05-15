@@ -1,0 +1,98 @@
+#!/bin/bash
+
+# ᓚᘏᗢ
+
+# Name: meow
+# Author: Moizuddin Shah
+# Date: 22-03-2024
+# Description:
+#
+# This script will print "meow" in the terminal when invoked. The goal is for 
+# it to eventually be able to print multiple forms of meow based on a random
+# number generator and if possible, also print out random cat emoticons with the
+# meows. Also in the future we may add options to only print out the text or 
+# only print out the cat graphic.
+
+# Old Test Code
+#echo -e "\nᓚᘏᗢ meow\n"
+#echo -e  "\n  へ\n（• ˕ •マ meow\n"
+
+# Tell getopt what your short (stuff after "-o") and long (stuff after "--long")
+# options are. If the option requires an input/value then add a : to it and then
+# continue with the rest of the options. You also tell it to not count anything
+# after the getopt command itself generates a "--" as an option. And to treat
+# all that text as non-options
+if ! options=$(getopt -o -hlV --long help,large,version -- "$@")
+then
+	# Error, getopt will print out a message for us
+	exit 1
+fi
+
+
+# Version String
+version="2.1.1"
+
+# Help function/string
+Help()
+{
+	echo "ᓚᘏᗢ"
+	echo "Print some variation of \"meow\" onomatopeia alongside an emoticon"
+	echo "of a cat in the terminal when invoked. Text and emoticon" 
+	echo "are randomly selected."
+	echo
+	echo "Syntax: meow [-h|V]"
+	echo "options:"
+	echo "h		Print this help"
+	echo "V		Print the software version and exit" 
+	echo
+}
+
+# Main script function
+Main()
+{
+	# Arrays to hold cat emotes and meow variants
+	catSprites=("ᓚᘏᗢ" "  へ\n（• ˕ •マ" "ᓚ₍ ^. .^₎" "ฅ^•ﻌ•^ฅ" ">^•-•^<") 
+	meowVar=("meow" "miaow" "nyan" "mew" "maow" "miau")
+
+	# Random Num Generation for cat emote and meow selection
+	catNum=$(((1 + $RANDOM % 5)-1))
+	meowNum=$(((1 + $RANDOM % 6)-1))
+
+	echo -e "\n${catSprites[catNum]} ${meowVar[meowNum]}\n"
+}
+
+# Positional parameters are set to the arguments that follow
+set -- $options
+
+# As long as there is a argument to evaluate from the above $options
+while [$# -gt 0]
+do
+	# Consume the next (what the terminal will see as 1st) argument
+	case "$1" in
+		-h|--help)
+			Help
+			exit;;
+		-l|--large)
+			# largeCat
+			echo -e "Large cat art goes here\n"
+			exit;;
+		-V|--version)
+			echo -e "Version: ${version}"
+			exit;;
+		(--)
+			shift; 
+			break;;
+		(-*)
+			# Print an error with the name of the script and what
+			# the unrecognized option was
+			echo "$0: error - unrecognized option $1" 1>&2;
+			exit;;			
+		(*)
+			break;;
+	esac
+	
+	# Fetch the next argument and make it the 1st AKA $1
+	shift
+done
+
+Main
