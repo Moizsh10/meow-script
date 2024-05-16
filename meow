@@ -8,7 +8,7 @@
 # Description:
 #
 # Adds a silly little cat to your terminal!
-
+#
 # This script will print "meow" in the terminal when invoked alongside an 
 # emoticon of a cat. The type of meow and emoticon printed to the terminal are
 # randomly selected. The script also has a couple options to print out ASCII art
