@@ -7,11 +7,12 @@
 # Date: 22-03-2024
 # Description:
 #
-# This script will print "meow" in the terminal when invoked. The goal is for 
-# it to eventually be able to print multiple forms of meow based on a random
-# number generator and if possible, also print out random cat emoticons with the
-# meows. Also in the future we may add options to only print out the text or 
-# only print out the cat graphic.
+# Adds a silly little cat to your terminal!
+
+# This script will print "meow" in the terminal when invoked alongside an 
+# emoticon of a cat. The type of meow and emoticon printed to the terminal are
+# randomly selected. The script also has a couple options to print out ASCII art
+# of cats to the terminal window as well.
 
 # Old Test Code
 #echo -e "\nᓚᘏᗢ meow\n"
