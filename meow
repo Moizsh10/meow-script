@@ -8,11 +8,12 @@
 # Description:
 #
 # Adds a silly little cat to your terminal!
-#
+# 
 # This script will print "meow" in the terminal when invoked alongside an 
-# emoticon of a cat. The type of meow and emoticon printed to the terminal are
+# emoticon of a cat. The type of meow and emoticon printed to the terminal are 
 # randomly selected. The script also has a couple options to print out ASCII art
 # of cats to the terminal window as well.
+ 
 
 # Old Test Code
 #echo -e "\nᓚᘏᗢ meow\n"
@@ -31,7 +32,7 @@ fi
 
 
 # Version String
-version="3.2.0"
+version="4.0.0"
 
 # Help function/string
 Help()
@@ -61,23 +62,25 @@ Help()
 # Print ASCII art of a cat from a file
 largeCat()
 {
-	fileNum=$(((1 + $RANDOM % 12)-1))
-	cat "$HOME/bin/cat_ASCII_art/large_cat_${fileNum}"
+	shopt -s nullglob
+	artFiles=($PWD/cat_ASCII_art/large_cat_*)
+	fileNum=$(($RANDOM % ${#artFiles[@]}))
+	cat "$PWD/cat_ASCII_art/large_cat_${fileNum}"
 }
 
 void()
 {
-	cat "$HOME/bin/cat_ASCII_art/void_cat_blepV2-ascii-art.txt"
+	cat "$PWD/cat_ASCII_art/void_cat_blepV2-ascii-art.txt"
 }
 
 freeman()
 {
-	cat "$HOME/bin/cat_ASCII_art/bg_freeman-ascii-art.txt"
+	cat "$PWD/cat_ASCII_art/bg_freeman-ascii-art.txt"
 }
 
 shirley()
 {
-	cat "$HOME/bin/cat_ASCII_art/bg_shad_shirley-ascii-art.txt"
+	cat "$PWD/cat_ASCII_art/bg_shad_shirley-ascii-art.txt"
 }
 
 # Main script function
@@ -88,8 +91,8 @@ Main()
 	meowVar=("meow" "miaow" "nyan" "mew" "maow" "miau")
 
 	# Random Num Generation for cat emote and meow selection
-	catNum=$(((1 + $RANDOM % 5)-1))
-	meowNum=$(((1 + $RANDOM % 6)-1))
+	catNum=$(((1 + $RANDOM % ${#catSprites[@]})-1))
+	meowNum=$(((1 + $RANDOM % ${#meowVar[@]})-1))
 
 	echo -e "\n${catSprites[catNum]} ${meowVar[meowNum]}\n"
 }
