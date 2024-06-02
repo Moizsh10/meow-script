@@ -30,9 +30,11 @@ then
 	exit 1
 fi
 
+# Version Number String
+version="4.0.2"
 
-# Version String
-version="4.0.0"
+# Script Directory String
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Help function/string
 Help()
@@ -63,24 +65,24 @@ Help()
 largeCat()
 {
 	shopt -s nullglob
-	artFiles=($PWD/cat_ASCII_art/large_cat_*)
+	artFiles=(${SCRIPT_DIR}/cat_ASCII_art/large_cat_*)
 	fileNum=$(($RANDOM % ${#artFiles[@]}))
-	cat "$PWD/cat_ASCII_art/large_cat_${fileNum}"
+	cat "${SCRIPT_DIR}/cat_ASCII_art/large_cat_${fileNum}"
 }
 
 void()
 {
-	cat "$PWD/cat_ASCII_art/void_cat_blepV2-ascii-art.txt"
+	cat "${SCRIPT_DIR}/cat_ASCII_art/void_cat_blepV2-ascii-art.txt"
 }
 
 freeman()
 {
-	cat "$PWD/cat_ASCII_art/bg_freeman-ascii-art.txt"
+	cat "${SCRIPT_DIR}/cat_ASCII_art/bg_freeman-ascii-art.txt"
 }
 
 shirley()
 {
-	cat "$PWD/cat_ASCII_art/bg_shad_shirley-ascii-art.txt"
+	cat "${SCRIPT_DIR}/cat_ASCII_art/bg_shad_shirley-ascii-art.txt"
 }
 
 # Main script function
