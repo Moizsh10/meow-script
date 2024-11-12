@@ -4,7 +4,7 @@
 
 **Author:** Moizuddin Shah
 
-**Date:** 22-03-2024
+**Date:** 12-11-2024
 
 **Description:**
 
@@ -56,13 +56,17 @@ $ source "$HOME/.bashrc"
 Here, three things are happening/have been done
 
 1. We created a directory named ``bin``
-2. We wrote added a line to the `.bashrc` (The BASH config file) file which exists in the ``$HOME`` directory. This line defines the PATH and tells `.bashrc` to look within the ``bin`` directory for any executable scripts if we run a command in the terminal before searching in other environments
+2. We wrote/added a line to the end of `.bashrc` (The BASH config file) file which exists in the ``$HOME`` directory. This line defines the PATH and tells `.bashrc` to look within the ``bin`` directory for any executable scripts if we run a command in the terminal before searching in other environments
 3. We told BASH to re-read its configuration file to apply the changes we just made!
 
-Then, to install you will simply extract the contents of the release and copy the `meow` script and `cat_ASCII_art/` directory into the directory where you're keeping your scripts and make the script executeable by running
+Then, to install you will simply extract the contents of the release and copy the `meow` script and the `cat_ASCII_art/` folder into the directory where you're keeping your scripts and make the script executeable by running
 
 ```
 chmod +x meow
 ```
 
 Now you can call the script and have silly little cat in your terminal!
+
+## Adding More ASCII Art
+The ASCII art used by the script is stored in the `cat_ASCII_art/` folder that should be in the same directory that you placed the `meow` script file. If you wanted to add more ASCII art to be randomly displayed when you use the `-l` or `--large` command you can easily do so by adding the ASCII art to the `cat_ASCII_art/` directory. The only thing you need to do is ensure that the file you store the art in is a `.txt` file. You don't need to worry about editing the script as it will be able to read how many files are in the folder and randomly select one to display.
+
