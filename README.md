@@ -43,6 +43,10 @@ Print some variation of \"meow\" onomatopeia alongside an emoticon of a cat in t
 
 &emsp;Print the software version and exit. 
 
+# Demo
+
+![demo]([https://media3.giphy.com/media/aUovxH8Vf9qDu/giphy.gif](https://dappercat.neocities.org/media/project_demos/meow_script_demoV2-ezgif.com-optimize.gif))
+
 # Installation
 
 There's a couple things you need before you can use this script. First you have to ensure that your terminal configuration file has a PATH variable that leads to a directory where you have your scripts installed or want to install your scripts. As an example:
