@@ -45,7 +45,7 @@ Print some variation of \"meow\" onomatopeia alongside an emoticon of a cat in t
 
 # Demo
 
-[demo](https://dappercat.neocities.org/media/project_demos/meow_script_demoV2-ezgif.com-optimize.gif)
+[demo](https://dappercat.neocities.org/media/project_demos/meow_script_demoV2_5.gif)
 
 # Installation
 
